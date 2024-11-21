@@ -69,7 +69,7 @@ fun homeHeader() {
                 )
                 Text(
                     modifier = Modifier.padding(start = 8.dp),
-                    text = "Denpasar, Bali",
+                    text = "Ica, Perú",
                     color = TextColor,
                     style = MaterialTheme.typography.bodySmall
                 )
