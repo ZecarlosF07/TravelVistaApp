@@ -52,7 +52,7 @@ fun homeHeader() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Current Location",
+                text = "Estas explorando",
                 color = SecondTextColor,
                 fontFamily = craneRegular,
                 style = MaterialTheme.typography.bodySmall
