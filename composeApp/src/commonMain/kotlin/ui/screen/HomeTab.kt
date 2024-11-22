@@ -108,6 +108,7 @@ fun HomeScreenView(
     val destinations by viewModel.destinations.collectAsState()
     val nearestDestinations = FakeArticles.destinations
     val categories by viewModel.categories.collectAsState()
+    var isvisible by remember { mutableStateOf(false) }
 
     Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
         var mDestinations by remember { mutableStateOf(destinations) }
@@ -139,13 +140,16 @@ fun HomeScreenView(
                             "All" -> {
                                 mDestinations = destinations
                                 mNearestDestinations = FakeArticles.destinations
+                                isvisible = false
                             }
                             else -> {
                                 mDestinations = arrayListOf<Destination>().apply {
                                     addAll(destinations.filter { it.category == category })
+                                    isvisible = true
                                 }
                                 mNearestDestinations = arrayListOf<Destination>().apply {
                                     addAll(nearestDestinations.filter { it.category == category })
+                                    isvisible = true
                                 }
                             }
                         }
@@ -199,53 +203,69 @@ fun HomeScreenView(
             ChildLayout(
                 contentType = HomeScreenContents.DESTINATION_VIEW_ALL.name,
                 content = {
-                    TitleWithViewAllItem(
-                        "Nearst your location",
-                        stringResource(Res.string.view_all),
-                        Res.drawable.arrow_forward
-                    )
+                    if (isvisible == true) {
+                        TitleWithViewAllItem(
+                            "Nearst your location",
+                            stringResource(Res.string.view_all),
+                            Res.drawable.arrow_forward
+                        )
+                    } else {
+
+                    }
                 }
             ),
             ChildLayout(
                 contentType = HomeScreenContents.NEAREST_LOCATIONS.name,
                 content = {
-                    LazyRow(
-                        modifier = Modifier
-                            .padding(start = 16.dp, top = 12.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        items(mNearestDestinations) {
-                            NearestLocationItem(it) {
-                                viewModel.setBottomNavBarVisible(false)
-                                navigator.push(DestinationDetailScreen(it))
+                    if (isvisible == true) {
+                        LazyRow(
+                            modifier = Modifier
+                                .padding(start = 16.dp, top = 12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            items(mNearestDestinations) {
+                                NearestLocationItem(it) {
+                                    viewModel.setBottomNavBarVisible(false)
+                                    navigator.push(DestinationDetailScreen(it))
+                                }
                             }
                         }
+                    } else {
+
                     }
                 }
             ),
             ChildLayout(
                 contentType = HomeScreenContents.DESTINATION_VIEW_ALL.name,
                 content = {
-                    TitleWithViewAllItem(
-                        "Articles",
-                        stringResource(Res.string.view_all),
-                        Res.drawable.arrow_forward
-                    )
+                    if (isvisible == true) {
+                        TitleWithViewAllItem(
+                            "Articles",
+                            stringResource(Res.string.view_all),
+                            Res.drawable.arrow_forward
+                        )
+                    } else {
+
+                    }
                 }
             ),
             ChildLayout(
                 contentType = HomeScreenContents.ARTICLES.name,
                 content = {
-                    Column (
-                        modifier = Modifier.padding(start = 16.dp, top = 12.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        FakeArticles.articles.forEach {
-                            ArticleCard(modifier = Modifier, article = it) {
-                                viewModel.setBottomNavBarVisible(false)
-                                navigator.push(ArticleDetailScreen(it))
+                    if (isvisible == true) {
+                        Column(
+                            modifier = Modifier.padding(start = 16.dp, top = 12.dp),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            FakeArticles.articles.forEach {
+                                ArticleCard(modifier = Modifier, article = it) {
+                                    viewModel.setBottomNavBarVisible(false)
+                                    navigator.push(ArticleDetailScreen(it))
+                                }
                             }
                         }
+                    } else {
+
                     }
                 }
             )
