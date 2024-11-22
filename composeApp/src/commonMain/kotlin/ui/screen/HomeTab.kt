@@ -110,6 +110,8 @@ fun HomeScreenView(
 
     Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
         var mDestinations by remember { mutableStateOf(destinations) }
+        var mDestinations2 by remember { mutableStateOf(destinations) }
+        var mHoteles by remember { mutableStateOf(destinations) }
         var mNearestDestinations by remember { mutableStateOf(nearestDestinations) }
         VerticalScrollLayout(
             modifier = Modifier.fillMaxSize()
@@ -135,20 +137,28 @@ fun HomeScreenView(
                 content = {
                     loadCategoryItems(categories) { category ->
                         when (category.title) {
-                            "All" -> {
-                                mDestinations = destinations
-                                mNearestDestinations = FakeArticles.destinations
+                            "Todo" -> {
                                 artvisible = false
+                                mDestinations = arrayListOf<Destination>().apply {
+                                    addAll(destinations.filter { it.type == "Turismo" })
+                                }
+
+                                mDestinations2 = arrayListOf<Destination>().apply {
+                                    addAll(destinations.filter { it.type == "Festividad" })
+                                }
                             }
                             else -> {
+                                artvisible = true
                                 mDestinations = arrayListOf<Destination>().apply {
-                                    addAll(destinations.filter { it.category == category })
-                                    artvisible = true
+                                    addAll(destinations.filter { it.category == category && it.type == "Festividad" || it.category == category && it.type == "Turismo"})
+                                }
+                                mHoteles = arrayListOf<Destination>().apply {
+                                    addAll(destinations.filter { it.category == category && it.type == "Hoteles" })
                                 }
                                 mNearestDestinations = arrayListOf<Destination>().apply {
                                     addAll(nearestDestinations.filter { it.category == category })
-                                    artvisible = true
                                 }
+
                             }
                         }
                     }
@@ -188,7 +198,11 @@ fun HomeScreenView(
             ),
             ChildLayout(
                 contentType = HomeScreenContents.DESTINATION_SMALL_SECTION.name,
-                items = mDestinations,
+                items = if (artvisible == true){
+                    mHoteles
+                }else{
+                    mDestinations2
+                },
                 content = { item ->
                     LoadItemAfterSafeCast<Destination>(item) {
                         destinationSmallItem(it) {
