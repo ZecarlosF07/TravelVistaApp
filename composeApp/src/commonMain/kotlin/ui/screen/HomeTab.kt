@@ -18,8 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
@@ -108,7 +106,7 @@ fun HomeScreenView(
     val destinations by viewModel.destinations.collectAsState()
     val nearestDestinations = FakeArticles.destinations
     val categories by viewModel.categories.collectAsState()
-    var isvisible by remember { mutableStateOf(false) }
+    var artvisible by remember { mutableStateOf(false) }
 
     Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
         var mDestinations by remember { mutableStateOf(destinations) }
@@ -140,16 +138,16 @@ fun HomeScreenView(
                             "All" -> {
                                 mDestinations = destinations
                                 mNearestDestinations = FakeArticles.destinations
-                                isvisible = false
+                                artvisible = false
                             }
                             else -> {
                                 mDestinations = arrayListOf<Destination>().apply {
                                     addAll(destinations.filter { it.category == category })
-                                    isvisible = true
+                                    artvisible = true
                                 }
                                 mNearestDestinations = arrayListOf<Destination>().apply {
                                     addAll(nearestDestinations.filter { it.category == category })
-                                    isvisible = true
+                                    artvisible = true
                                 }
                             }
                         }
@@ -203,21 +201,21 @@ fun HomeScreenView(
             ChildLayout(
                 contentType = HomeScreenContents.DESTINATION_VIEW_ALL.name,
                 content = {
-                    if (isvisible == true) {
+                    if (artvisible == true) {
                         TitleWithViewAllItem(
                             "Nearst your location",
                             stringResource(Res.string.view_all),
                             Res.drawable.arrow_forward
                         )
                     } else {
-
+                        null
                     }
                 }
             ),
             ChildLayout(
                 contentType = HomeScreenContents.NEAREST_LOCATIONS.name,
                 content = {
-                    if (isvisible == true) {
+                    if (artvisible == true) {
                         LazyRow(
                             modifier = Modifier
                                 .padding(start = 16.dp, top = 12.dp),
@@ -231,28 +229,28 @@ fun HomeScreenView(
                             }
                         }
                     } else {
-
+                        null
                     }
                 }
             ),
             ChildLayout(
                 contentType = HomeScreenContents.DESTINATION_VIEW_ALL.name,
                 content = {
-                    if (isvisible == true) {
+                    if (artvisible == true) {
                         TitleWithViewAllItem(
                             "Articles",
                             stringResource(Res.string.view_all),
                             Res.drawable.arrow_forward
                         )
                     } else {
-
+                        null
                     }
                 }
             ),
             ChildLayout(
                 contentType = HomeScreenContents.ARTICLES.name,
                 content = {
-                    if (isvisible == true) {
+                    if (artvisible == true) {
                         Column(
                             modifier = Modifier.padding(start = 16.dp, top = 12.dp),
                             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -265,7 +263,7 @@ fun HomeScreenView(
                             }
                         }
                     } else {
-
+                        null
                     }
                 }
             )
