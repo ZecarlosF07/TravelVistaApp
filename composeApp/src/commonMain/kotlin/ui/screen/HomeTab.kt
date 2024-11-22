@@ -110,7 +110,14 @@ fun HomeScreenView(
 
     Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
         var mDestinations by remember { mutableStateOf(destinations) }
+
+
         var mDestinations2 by remember { mutableStateOf(destinations) }
+
+        mDestinations2 = arrayListOf<Destination>().apply {
+            addAll(destinations.filter { it.type == "Festividad" })
+        }
+
         var mHoteles by remember { mutableStateOf(destinations) }
         var mNearestDestinations by remember { mutableStateOf(nearestDestinations) }
         VerticalScrollLayout(
