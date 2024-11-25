@@ -227,8 +227,6 @@ fun HomeScreenView(
                             stringResource(Res.string.view_all),
                             Res.drawable.arrow_forward
                         )
-                    } else {
-                        null
                     }
                 }
             ),
@@ -248,8 +246,6 @@ fun HomeScreenView(
                                 }
                             }
                         }
-                    } else {
-                        null
                     }
                 }
             ),
@@ -262,8 +258,6 @@ fun HomeScreenView(
                             stringResource(Res.string.view_all),
                             Res.drawable.arrow_forward
                         )
-                    } else {
-                        null
                     }
                 }
             ),
@@ -282,8 +276,6 @@ fun HomeScreenView(
                                 }
                             }
                         }
-                    } else {
-                        null
                     }
                 }
             )
