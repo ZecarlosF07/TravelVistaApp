@@ -78,7 +78,7 @@ import travelvista.composeapp.generated.resources.type
 import travelvista.composeapp.generated.resources.via
 import ui.component.DestinationDetailChipItem
 import ui.component.DestinationDetailFacilityItem
-import ui.component.DestinationDetailPersonQunatityCard
+
 import ui.component.DestinationDetailSubItem
 import ui.component.DestinationDetailSubItemDivider
 import ui.component.DestinationDetailSubItemRatting
@@ -130,7 +130,7 @@ fun DestinationDetailScreenView(
             rememberThumbnail.value = it
         }
         PrimaryButton(
-            title = "Add to Cart",
+            title = "Como llegar",
             paddingValues = PaddingValues(start = 25.dp, top = 36.dp, end = 25.dp, bottom = 36.dp),
             onClick = { viewModel.addToCart(destination) }
         )
@@ -216,16 +216,12 @@ fun topSection(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
+
                     Text(
-                        text = destination.price,
+                        text = destination.type,
                         color = White,
                         style = MaterialTheme.typography.bodySmall,
                         fontSize = TextUnit(24f, TextUnitType.Sp)
-                    )
-                    Text(
-                        text = "/${destination.type}",
-                        color = White,
-                        style = MaterialTheme.typography.labelMedium
                     )
                 }
             }
@@ -272,11 +268,7 @@ fun contentSection(destination: Destination, onImageClicked: (String) -> Unit) {
                 stringResource(Res.string.estimation),
                 destination.estimation.toUpperCase(Locale.current)
             )
-            DestinationDetailSubItemDivider()
-            DestinationDetailSubItem(
-                stringResource(Res.string.via),
-                destination.via.toUpperCase(Locale.current)
-            )
+
         }
 
         Text(
@@ -318,23 +310,6 @@ fun contentSection(destination: Destination, onImageClicked: (String) -> Unit) {
 
         DestinationDetailChipItem(destination.dates)
 
-        Text(
-            modifier = Modifier.padding(start = 16.dp, top = 30.dp),
-            text = stringResource(Res.string.choose_meeting_point),
-            color = TextColor,
-            style = MaterialTheme.typography.bodyMedium
-        )
-
-        DestinationDetailChipItem(destination.meetingPoints)
-
-        DestinationDetailPersonQunatityCard(destination)
-
-        Text(
-            modifier = Modifier.padding(start = 16.dp, top = 30.dp),
-            text = stringResource(Res.string.facilities),
-            color = TextColor,
-            style = MaterialTheme.typography.bodyMedium
-        )
 
         DestinationDetailFacilityItem(destination.facilities)
     }

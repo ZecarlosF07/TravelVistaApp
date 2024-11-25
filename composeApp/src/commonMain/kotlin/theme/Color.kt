@@ -21,4 +21,8 @@ val CategoryChipBg = Color(0xFF4D5652)
 val BorderColor = Color(0xFFDDDDDD) // Light grey
 val LinkColor = Color(0xFF0000FF) // Blue
 val CodeBackground = Color(0xFFf9f9f9)
+//Para ingresar mas colores 0xFF + codigo de color
+val ColorInicio = Color(0xFFFEB615)
+val ColorTexto = Color(0xFF5E5B5B)
+
 

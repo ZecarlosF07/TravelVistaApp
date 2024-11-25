@@ -19,10 +19,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.navigator.Navigator
 import model.Destination
 import org.jetbrains.compose.resources.painterResource
+import theme.ColorInicio
+import theme.ColorTexto
 import theme.White
 import theme.craneRegular
 import theme.PrimaryColor
@@ -35,53 +44,42 @@ import travelvista.composeapp.generated.resources.ci_location
 import travelvista.composeapp.generated.resources.humberg_icon
 import travelvista.composeapp.generated.resources.menu_fav
 import travelvista.composeapp.generated.resources.profile_icon
+import kotlin.text.append
 
 @Composable
 fun homeHeader() {
+
+    val MyTextStyle = TextStyle(
+        fontSize = 25.sp,
+        fontFamily = craneRegular,
+        color = ColorTexto,
+        fontWeight = FontWeight.Bold
+    )
+    val annotatedString = buildAnnotatedString {
+        pushStyle(MyTextStyle.toSpanStyle())
+        append("Conoce todo lo que ")
+        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = ColorInicio)) { // Usa tu color personalizado
+            append("ICA")
+        }
+        append(" \n tiene para ti")
+        pop()
+    }
+
     Row(
-        modifier = Modifier.fillMaxWidth().padding(16.dp),
+        modifier = Modifier.fillMaxWidth().padding( top = 20.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Image(
-            modifier = Modifier.size(36.dp),
-            painter = painterResource(Res.drawable.humberg_icon),
-            contentDescription = null
-        )
+
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxWidth().padding(start = 30.dp)
         ) {
-            Text(
-                text = "Estas explorando",
-                color = SecondTextColor,
-                fontFamily = craneRegular,
-                style = MaterialTheme.typography.bodySmall
-            )
-            Row(
-                modifier = Modifier.padding(top = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(Res.drawable.ci_location),
-                    contentDescription = null,
-                    tint = PrimaryColor
-                )
-                Text(
-                    modifier = Modifier.padding(start = 8.dp),
-                    text = "Ica, Perú",
-                    color = TextColor,
-                    style = MaterialTheme.typography.bodySmall
-                )
+            Text(text = annotatedString)
             }
         }
-        Image(
-            modifier = Modifier.size(36.dp),
-            painter = painterResource(Res.drawable.profile_icon),
-            contentDescription = null
-        )
+
     }
-}
+
 
 @Composable
 fun destinationDetailHeader(
