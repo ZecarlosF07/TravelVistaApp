@@ -49,7 +49,6 @@ interface Tabx: Tab {
 val tabs = arrayListOf<Tabx>().apply {
     add(HomeTab)
     add(FavoriteTab)
-    add(CartTab)
     add(GeminiTab)
 }
 

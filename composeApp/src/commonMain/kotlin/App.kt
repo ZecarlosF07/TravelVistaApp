@@ -55,7 +55,6 @@ internal fun App() {
                             when (it) {
                                 HomeTab -> LocalNavigator.currentOrThrow.push(HomeTab)
                                 FavoriteTab -> LocalNavigator.currentOrThrow.push(FavoriteTab)
-                                CartTab -> LocalNavigator.currentOrThrow.push(CartTab)
                                 GeminiTab -> LocalNavigator.currentOrThrow.push(GeminiTab)
                             }
                         }
