@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -108,7 +109,7 @@ fun HomeScreenView(
     val categories by viewModel.categories.collectAsState()
     var artvisible by remember { mutableStateOf(false) }
 
-    Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
+    Surface(modifier = Modifier.background(color = Color.White).fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
         var mDestinations by remember { mutableStateOf(destinations) }
 
         var mDestinations2 by remember { mutableStateOf(destinations) }
@@ -121,7 +122,7 @@ fun HomeScreenView(
         var mNearestDestinations by remember { mutableStateOf(nearestDestinations) }
         VerticalScrollLayout(
             modifier = Modifier.fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.background),
+                .background(color = Color.White),
             ChildLayout(
                 contentType = HomeScreenContents.HEADER_SECTION.name,
                 content = {

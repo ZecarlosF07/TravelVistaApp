@@ -18,6 +18,7 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -43,6 +44,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.text.style.TextAlign
@@ -98,7 +100,7 @@ data object GeminiTab : Tabx {
     override fun Content() {
         val screenModel = HomeScreenModelProvider.homeScreenModel
         val navigator = LocalNavigator.currentOrThrow
-        GeminiScreenView(navigator = navigator, viewModel = screenModel)
+            GeminiScreenView(navigator = navigator, viewModel = screenModel)
     }
 }
 
@@ -144,7 +146,7 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
         }
     }
 
-    Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
+    Surface(modifier = Modifier.background(color = Color.White).fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
         val imagePickerLauncher = rememberFilePickerLauncher(PickerType.Image) { selectedImage ->
             coroutineScope.launch {
                 val bytes = selectedImage?.readBytes()
@@ -156,6 +158,7 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
 
         Column(
             modifier = Modifier
+                .background(color = Color.White)
                 .verticalScroll(rememberScrollState())
                 .fillMaxWidth().padding(16.dp)
         ) {
@@ -168,7 +171,8 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
             )
 
             FlowRow(
-                modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+                modifier = Modifier
+                    .fillMaxWidth().padding(top = 16.dp),
             ) {
                 OutlinedTextField(
                     value = prompt,
@@ -269,12 +273,14 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
             Spacer(Modifier.height(16.dp))
             if (showProgress) {
                 Column(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Column(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .fillMaxSize()
                     ) {
                         repeat(5) {
                             ShimmerAnimation()
@@ -284,7 +290,8 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
             } else {
                 SelectionContainer {
                     Markdown(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .fillMaxSize(),
                         content = content,
                         colors = markdownColor(
                             text = TextColor,

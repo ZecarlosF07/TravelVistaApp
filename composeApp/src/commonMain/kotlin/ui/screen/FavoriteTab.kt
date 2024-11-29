@@ -14,6 +14,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
@@ -80,10 +81,10 @@ fun FavoriteScreenView(
 ) {
     val favorites by viewModel.favorites.collectAsState()
 
-    Surface(modifier = Modifier.fillMaxWidth().padding(bottom = BOTTOM_NAV_SPACE)) {
+    Surface(modifier = Modifier.background(color = Color.White).padding(bottom = BOTTOM_NAV_SPACE)) {
         LazyColumn(
             modifier = Modifier.fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.background)
+                .background(color = Color.White)
         ) {
             item {
                 Text(

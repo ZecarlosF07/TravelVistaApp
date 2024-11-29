@@ -1,5 +1,9 @@
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -20,6 +24,7 @@ import coil3.util.DebugLogger
 import di.HomeScreenModelProvider
 import okio.FileSystem
 import theme.TravelAppTheme
+import theme.White
 import ui.component.BottomMenuBar
 import ui.component.tabs
 import ui.screen.CartTab
@@ -30,6 +35,7 @@ import util.AnimateVisibility
 
 @Composable
 internal fun App() {
+
     TravelAppTheme {
 
         setSingletonImageLoaderFactory { context ->

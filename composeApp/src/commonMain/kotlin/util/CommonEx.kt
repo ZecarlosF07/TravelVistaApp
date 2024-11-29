@@ -31,7 +31,7 @@ fun ImageItem(
     rotate: Float = 90f
 ) {
     Card(
-        shape = shape
+        shape = shape,
     ) {
         AsyncImage(
             modifier = modifier

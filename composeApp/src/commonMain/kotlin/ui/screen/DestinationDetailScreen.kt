@@ -107,6 +107,8 @@ fun DestinationDetailScreenView(
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .background(
+                color = White)
             .verticalScroll(rememberScrollState())
     ) {
         topSection(
