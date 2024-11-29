@@ -118,16 +118,14 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
     val canClearPrompt by remember { derivedStateOf { prompt.isNotBlank() } }
     if (navigateToGemini.first && navigateToGemini.second != null) {
         val customPrompt = """
-                Como turista, quiero explorar y aprender sobre un destino. Proporcione información completa sobre el siguiente lugar: ${navigateToGemini.second?.title}.
+                Actua como un guia turistico, ahora los turistas quieren aprender sobre un destino. Proporcione información completa sobre el siguiente lugar ubicado en Ica, Perú: ${navigateToGemini.second?.title}.
                 Incluya detalles clave como:
-                - Una breve descripción del lugar.
-                - Importancia histórica o cultural
-                - Atracciones turísticas populares o puntos de referencia.
-                - Mejor época para visitar
-                - Actividades disponibles
-                - Imágenes del destino
+                - Atracciones turísticas populares o puntos de referencia (Una lista concisa)
+                - Clima actual
+                - Vestimenta recomendada
+                - Mejor época para visitar (solo recomendar)
                 - Rutas de navegación o cómo llegar desde lugares comunes.
-        Haga que la información sea atractiva y fácil de entender.
+        Haga que la información sea atractiva, concisa y fácil de entender.
         """.trimIndent()
         coroutineScope.launch {
             println("prompt = $customPrompt")
@@ -173,14 +171,14 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
                 modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
             ) {
                 OutlinedTextField(
-                    value = navigateToGemini.second?.title ?: prompt,
+                    value = prompt,
                     onValueChange = { prompt = it },
                     modifier = Modifier
                         .fillMaxSize()
                         .defaultMinSize(minHeight = 52.dp),
                     label = {
                         Text(
-                            text =  "Search",
+                            text =  "Buscar",
                             color = TextColor,
                             style = MaterialTheme.typography.labelSmall,
                         )
@@ -232,7 +230,7 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
                         .align(Alignment.CenterVertically)
                 ) {
                     Text(
-                        text =  "Submit",
+                        text =  "Enviar",
                         color = TextColor,
                         style = MaterialTheme.typography.labelSmall,
                     )
@@ -246,7 +244,7 @@ fun GeminiScreenView(navigator: Navigator, viewModel: HomeScreenModel){
                         .align(Alignment.CenterVertically)
                 ) {
                     Text(
-                        text =  "Select Image",
+                        text =  "Ingresar Imagen",
                         color = TextColor,
                         style = MaterialTheme.typography.labelSmall,
                     )

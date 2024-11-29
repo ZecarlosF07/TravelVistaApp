@@ -130,8 +130,8 @@ fun DestinationDetailScreenView(
             rememberThumbnail.value = it
         }
         PrimaryButton(
-            title = "Como llegar",
-            paddingValues = PaddingValues(start = 25.dp, top = 36.dp, end = 25.dp, bottom = 36.dp),
+            title = "COMO LLEGAR",
+            paddingValues = PaddingValues(start = 25.dp, end = 25.dp, bottom = 36.dp),
             onClick = { viewModel.addToCart(destination) }
         )
 
@@ -310,7 +310,6 @@ fun contentSection(destination: Destination, onImageClicked: (String) -> Unit) {
 
         DestinationDetailChipItem(destination.dates)
 
-
         DestinationDetailFacilityItem(destination.facilities)
     }
 }
@@ -338,7 +337,7 @@ fun GeminiRoundButton(
 
     BoxWithConstraints(
         modifier = modifier
-            .padding(end = 16.dp, bottom = 36.dp)
+            .padding(end = 5.dp, bottom = 36.dp)
             .width(buttonWidth)
             .background(color = PrimaryColor, shape = RoundedCornerShape(8.dp))
             .clickable {
@@ -366,7 +365,7 @@ fun GeminiRoundButton(
                 exit = fadeOut() + shrinkOut()
             ) {
                 Text(
-                    text = "Explore with Gemini",
+                    text = "Mas informacion",
                     color = Color.White,
                     style = MaterialTheme.typography.bodyLarge,
                     fontSize = 16.sp

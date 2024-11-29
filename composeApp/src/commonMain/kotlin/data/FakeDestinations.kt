@@ -8,19 +8,19 @@ object FakeDestinations {
             Destination(
                 id = 1,
                 thumbnail = FakeImages.randomThumbnailUrl(),
-                title = "Indonesia Mountain",
+                title = "Palmera de 7 Cabezas",
                 description = "The mighty Rinjani mountain of Gunung Rinjani is a massive volcano which towers over the island of Lombok. A climb to the top is one of the most exhilarating experiences you can have in Indonesia. At 3,726 meters tall, Gunung Rinjani is the second highest mountain in Indonesia...",
                 rating = 4.3f,
                 location = "Ica, Perú",
                 price = "$48",
                 type = "Turismo",
                 category = FakeCategories.categories[1],
-                image = FakeImages.randomImageUrls(6),
-                dates = arrayListOf("20 Dec - 24 Dec 2024", "25 Dec - 26 Dec 2024", "27 Dec - 30 Dec 2024"),
+                image = FakeImages.randomImageUrls(4),
+                dates = arrayListOf("Lunes a Viernes: 9:00 AM - 9:00 PM", "Sabado y Domingo: 9:00 AM - 9:00 PM"),
                 meetingPoints = arrayListOf("Serang", "Baranga", "Manchester", "Folio"),
-                facilities = arrayListOf("Transport", "Simaksi", "Coffee Break", "Meals during trekking","Camping tents", "P3K", "Officially recognized mountain guide", "Guide during trekking", "Folio"),
+                facilities = arrayListOf("999-999-999", "correo@gmail.com"),
                 via = "Peshawar",
-                estimation = "1 WEEK"
+                estimation = "10 km"
             )
         )
         add(
@@ -34,12 +34,12 @@ object FakeDestinations {
                 price = "$30",
                 type = "Turismo",
                 category = FakeCategories.categories[1],
-                image =FakeImages.randomImageUrls(5),
-                dates = arrayListOf("20 Dec - 24 Dec 2024", "25 Dec - 26 Dec 2024", "27 Dec - 30 Dec 2024"),
+                image =FakeImages.randomImageUrls(4),
+                dates = arrayListOf("Lunes a Viernes: 9:00 AM - 9:00 PM", "Sabado y Domingo: 9:00 AM - 9:00 PM"),
                 meetingPoints = arrayListOf("Serang", "Baranga", "Manchester", "Folio"),
-                facilities = arrayListOf("Transport", "Simaksi", "Coffee Break", "Meals during trekking","Camping tents", "P3K", "Officially recognized mountain guide", "Guide during trekking", "Folio"),
+                facilities = arrayListOf("999-999-999", "correo@gmail.com"),
                 via = "Peshawar",
-                estimation = "1 WEEK"
+                estimation = "10 km"
             )
         )
         add(
@@ -54,11 +54,11 @@ object FakeDestinations {
                 type = "Turismo",
                 category = FakeCategories.categories[2],
                 image = FakeImages.randomImageUrls(3),
-                dates = arrayListOf("20 Dec - 24 Dec 2024", "25 Dec - 26 Dec 2024", "27 Dec - 30 Dec 2024"),
+                dates = arrayListOf("Lunes a Viernes: 9:00 AM - 9:00 PM", "Sabado y Domingo: 9:00 AM - 9:00 PM"),
                 meetingPoints = arrayListOf("Serang", "Baranga", "Manchester", "Folio"),
-                facilities = arrayListOf("Transport", "Simaksi", "Coffee Break", "Meals during trekking","Camping tents", "P3K", "Officially recognized mountain guide", "Guide during trekking", "Folio"),
+                facilities = arrayListOf("999-999-999", "correo@gmail.com"),
                 via = "Karachi",
-                estimation = "1 WEEK"
+                estimation = "10 km"
             )
         )
         add(
@@ -72,12 +72,12 @@ object FakeDestinations {
                 price = "$18",
                 type = "Festividad",
                 category = FakeCategories.categories[3],
-                image = FakeImages.randomImageUrls(3),
-                dates = arrayListOf("20 Dec - 24 Dec 2024", "25 Dec - 26 Dec 2024", "27 Dec - 30 Dec 2024"),
+                image = FakeImages.randomImageUrls(4),
+                dates = arrayListOf("Lunes a Viernes: 9:00 AM - 9:00 PM", "Sabado y Domingo: 9:00 AM - 9:00 PM"),
                 meetingPoints = arrayListOf("Serang", "Baranga", "Manchester", "Folio"),
-                facilities = arrayListOf("Transport", "Simaksi", "Coffee Break", "Meals during trekking","Camping tents", "P3K", "Officially recognized mountain guide", "Guide during trekking", "Folio"),
+                facilities = arrayListOf("999-999-999", "correo@gmail.com"),
                 via = "Lahore",
-                estimation = "1 Day"
+                estimation = "10 km"
             )
         )
         add(
@@ -91,12 +91,12 @@ object FakeDestinations {
                 price = "$18",
                 type = "Festividad",
                 category = FakeCategories.categories[4],
-                image = FakeImages.randomImageUrls(3),
-                dates = arrayListOf("20 Dec - 24 Dec 2024", "25 Dec - 26 Dec 2024", "27 Dec - 30 Dec 2024"),
+                image = FakeImages.randomImageUrls(4),
+                dates = arrayListOf("Lunes a Viernes: 9:00 AM - 9:00 PM", "Sabado y Domingo: 9:00 AM - 9:00 PM"),
                 meetingPoints = arrayListOf("Serang", "Baranga", "Manchester", "Folio"),
-                facilities = arrayListOf("Transport", "Simaksi", "Coffee Break", "Meals during trekking","Camping tents", "P3K", "Officially recognized mountain guide", "Guide during trekking", "Folio"),
+                facilities = arrayListOf("999-999-999", "correo@gmail.com"),
                 via = "Lahore",
-                estimation = "1 Day"
+                estimation = "10 km"
             )
         )
         add(
@@ -110,12 +110,12 @@ object FakeDestinations {
                 price = "$18",
                 type = "Hoteles",
                 category = FakeCategories.categories[2],
-                image = FakeImages.randomImageUrls(3),
-                dates = arrayListOf("20 Dec - 24 Dec 2024", "25 Dec - 26 Dec 2024", "27 Dec - 30 Dec 2024"),
+                image = FakeImages.randomImageUrls(4),
+                dates = arrayListOf("Lunes a Viernes: 9:00 AM - 9:00 PM", "Sabado y Domingo: 9:00 AM - 9:00 PM"),
                 meetingPoints = arrayListOf("Serang", "Baranga", "Manchester", "Folio"),
-                facilities = arrayListOf("Transport", "Simaksi", "Coffee Break", "Meals during trekking","Camping tents", "P3K", "Officially recognized mountain guide", "Guide during trekking", "Folio"),
+                facilities = arrayListOf("999-999-999", "correo@gmail.com"),
                 via = "Lahore",
-                estimation = "1 Day"
+                estimation = "10 km"
             )
         )
     }
