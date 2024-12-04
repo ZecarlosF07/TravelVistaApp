@@ -58,7 +58,7 @@ fun homeHeader() {
     val annotatedString = buildAnnotatedString {
         pushStyle(MyTextStyle.toSpanStyle())
         append("Conoce todo lo que ")
-        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = ColorInicio)) { // Usa tu color personalizado
+        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = ColorInicio)) {
             append("ICA")
         }
         append(" \n tiene para ti")
@@ -66,18 +66,27 @@ fun homeHeader() {
     }
 
     Row(
-        modifier = Modifier.fillMaxWidth().padding( top = 20.dp),
+        modifier = Modifier.fillMaxWidth().padding( top = 20.dp, start = 20.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
 
         Column(
-            modifier = Modifier.fillMaxWidth().padding(start = 30.dp)
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = annotatedString)
-            }
-        }
 
+            }
+        Image(
+            modifier = Modifier.size(60.dp).padding(end = 16.dp)
+                .clickable {
+
+            },
+            painter = painterResource(Res.drawable.humberg_icon),
+            contentDescription = null
+        )
+
+        }
     }
 
 
