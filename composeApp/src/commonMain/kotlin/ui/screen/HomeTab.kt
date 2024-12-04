@@ -224,7 +224,7 @@ fun HomeScreenView(
                 content = {
                     if (artvisible == true) {
                         TitleWithViewAllItem(
-                            "Nearst your location",
+                            "Restaurantes",
                             stringResource(Res.string.view_all),
                             Res.drawable.arrow_forward
                         )

@@ -123,8 +123,16 @@ fun destinationSmallItem(
                     modifier = Modifier.padding(top = 9.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(Res.drawable.star),
+                        contentDescription = null,
+                        tint = PrimaryColor
+                    )
+
                     Text(
-                        text = destination.price,
+                        modifier = Modifier.padding(start = 8.dp),
+                        text = destination.rating.toString(),
                         color = TextColor,
                         style = MaterialTheme.typography.bodySmall
                     )
@@ -230,15 +238,11 @@ fun destinationLargeItem(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
+
                         Text(
-                            text = destination.price,
+                            text = destination.type,
                             color = White,
                             style = MaterialTheme.typography.bodyLarge
-                        )
-                        Text(
-                            text = "/${destination.type}",
-                            color = White,
-                            style = MaterialTheme.typography.labelSmall
                         )
                     }
                 }
